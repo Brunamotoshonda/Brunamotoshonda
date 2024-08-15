@@ -1,3 +1,30 @@
+document.getElementById("form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const cpf = document.getElementById("cpf").value;
+    const rg = document.getElementById("rg").value;
+    const dataExp = document.getElementById("data-exp").value;
+    const estadoCivil = document.getElementById("estado-civil").value;
+    const comprovante = document.getElementById("comprovante").files.length;
+
+    if (cpf && rg && dataExp && estadoCivil && comprovante > 0) {
+        // Exibe o link dinâmico após o preenchimento
+        const message = document.getElementById("message");
+        message.textContent = "Formulário preenchido com sucesso!";
+        message.style.color = "green";
+
+        const dynamicLink = document.getElementById("dynamic-link");
+        dynamicLink.style.display = "block";
+        dynamicLink.href = "https://forms.gle/exemplo12345"; // Insira o link do Google Forms
+    } else {
+        // Mensagem de erro caso os campos obrigatórios não sejam preenchidos
+        const message = document.getElementById("message");
+        message.textContent = "Por favor, preencha todos os campos obrigatórios.";
+        message.style.color = "red";
+    }
+});
+
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
